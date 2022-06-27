@@ -15,8 +15,10 @@ class Login extends Component {
   fetchApi = async () => {
     const { name } = this.state;
     this.setState({ loading: true });
-    await createUser({ name: name });
+    await createUser({ name });
     this.setState({ loading: false, fetchState: true });
+    console.log(name);
+    console.log(createUser);
   };
 
   handleChange = (event) => {
@@ -46,7 +48,6 @@ class Login extends Component {
           disabled={ name.length < minimunCaracters }
         >
           Entrar
-
         </button>
         {loading && <Loading />}
         {fetchState && <Redirect to="/search" />}
