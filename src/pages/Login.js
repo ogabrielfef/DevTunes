@@ -8,9 +8,14 @@ const minimunCaracters = 3;
 class Login extends Component {
   state = {
     name: '',
-    user: '',
+    user: { name: '' },
     loading: false,
     fetchState: false,
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value });
   }
 
   fetchApi = async () => {
@@ -19,11 +24,6 @@ class Login extends Component {
     await createUser(user);
     this.setState({ fetchState: true });
   };
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value });
-  }
 
   render() {
     const { name, loading, fetchState } = this.state;
