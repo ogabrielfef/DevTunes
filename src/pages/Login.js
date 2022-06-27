@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { createUser } from '../services/userAPI';
+import Loading from '../Loading';
 
 const minimunCaracters = 3;
 
 class Login extends Component {
   state = {
     name: '',
+    user: '',
+    loading: false,
+    fetchState: false,
   }
+
+  fetchApi = async () => {
+    const { user } = this.state;
+    this.setState({ loading: true });
+    await createUser(user);
+    this.setState({ fetchState: true });
+  };
 
   handleChange = (event) => {
     this.setState({
@@ -14,7 +26,7 @@ class Login extends Component {
   }
 
   render() {
-    const { name } = this.state;
+    const { name, loading, fetchState } = this.state;
     return (
       <div data-testid="page-login">
         <h1>Login</h1>
@@ -31,12 +43,14 @@ class Login extends Component {
         <button
           type="button"
           data-testid="login-submit-button"
-          disabled={ name.length <= minimunCaracters }
-          onClick={ this.handleClick }
+          disabled={ name.length < minimunCaracters }
+          onClick={ this.fetchApi }
         >
           Entrar
 
         </button>
+        {loading && <Loading />}
+        {fetchState && <Redirect to="/search" />}
       </div>
     );
   }
