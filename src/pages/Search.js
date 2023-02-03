@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../Loading';
 import searchAlbumsAPIs from '../services/searchAlbumsAPI';
+import './Search.css';
 
 class Search extends Component {
   state = {
@@ -35,42 +36,48 @@ class Search extends Component {
     return (
       <div data-testid="page-search">
         <Header />
-        <h1>Search</h1>
-        <label htmlFor="album">
-          <input
-            type="text"
-            id="album"
-            name="album"
-            data-testid="search-artist-input"
-            onChange={ this.handleChange }
-            value={ album }
-          />
-        </label>
-        <button
-          type="button"
-          data-testid="search-artist-button"
-          onClick={ this.handleClick }
-          disabled={ album.length < 2 }
-        >
-          Pesquisar
-
-        </button>
-        {loading && <Loading />}
-        {albumArr.length > 0 ? (
-          <p>
-            {`Resultado de álbuns de: ${searchAlbum}`}
-          </p>
-        ) : (<p>Nenhum álbum foi encontrado</p>) }
-        {searchApi && albumArr.map((artist) => (
-          <div key={ artist.collectionId }>
-            <img src={ artist.artworkUrl100 } alt={ artist.collectionName } />
-            <Link
-              to={ `/album/${artist.collectionId}` }
-              data-testid={ `link-to-album-${artist.collectionId}` }
+        <div className="content">
+          <h1>Search</h1>
+          <div className="search">
+            <label htmlFor="album">
+              <input
+                type="text"
+                id="album"
+                name="album"
+                data-testid="search-artist-input"
+                onChange={ this.handleChange }
+                value={ album }
+              />
+            </label>
+            <button
+              type="button"
+              data-testid="search-artist-button"
+              onClick={ this.handleClick }
+              disabled={ album.length < 2 }
             >
-              {artist.collectionName}
-            </Link>
-          </div>))}
+              Pesquisar
+
+            </button>
+          </div>
+          {loading && <Loading />}
+          {albumArr.length > 0 ? (
+            <p>
+              {`Resultado de álbuns de: ${searchAlbum}`}
+            </p>
+          ) : (<p>Nenhum álbum foi encontrado</p>) }
+          <div className="albuns">
+            {searchApi && albumArr.map((artist) => (
+              <div key={ artist.collectionId } className="album-card">
+                <Link
+                  to={ `/album/${artist.collectionId}` }
+                  data-testid={ `link-to-album-${artist.collectionId}` }
+                >
+                  <img src={ artist.artworkUrl100 } alt={ artist.collectionName } />
+                  {artist.collectionName}
+                </Link>
+              </div>))}
+          </div>
+        </div>
       </div>
     );
   }

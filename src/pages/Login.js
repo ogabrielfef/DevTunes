@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from '../Loading';
+import './Login.css';
+import capa from '../assets/girl-earphone.png';
 
 const minimunCaracters = 3;
 
@@ -28,30 +30,40 @@ class Login extends Component {
   render() {
     const { name, loading } = this.state;
     return (
-      <div>
-        {loading ? <Loading /> : (
-          <div data-testid="page-login">
-            <h1>Login</h1>
-            <label htmlFor="name">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={ name }
-                data-testid="login-name-input"
-                onChange={ this.handleChange }
-              />
-            </label>
-            <button
-              type="button"
-              data-testid="login-submit-button"
-              onClick={ this.saved }
-              disabled={ name.length < minimunCaracters }
-            >
-              Entrar
-            </button>
+      <div className="login-container">
+        <div className="header">
+          <p>DevTunes</p>
+        </div>
+        <div className="content-login">
+          {loading ? <Loading /> : (
+            <div data-testid="page-login" className="login">
+              <h1>Login</h1>
+              <div className="inputs-login">
+                <label htmlFor="name">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={ name }
+                    data-testid="login-name-input"
+                    onChange={ this.handleChange }
+                  />
+                </label>
+                <button
+                  type="button"
+                  data-testid="login-submit-button"
+                  onClick={ this.saved }
+                  disabled={ name.length < minimunCaracters }
+                >
+                  Entrar
+                </button>
+              </div>
+            </div>
+          )}
+          <div className="capa-login">
+            <img className="capa-login" alt="girl-earphones" src={ capa } />
           </div>
-        )}
+        </div>
       </div>
     );
   }

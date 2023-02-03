@@ -1,0 +1,114 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fffeea;
+}
+
+.header {
+  height: 70px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #81b71a;
+  margin-bottom: 30px;
+}
+
+.header p {
+  text-shadow: 8px 5px 6px black;
+}
+
+.content-login {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 16px 16px 20px #81b71a;
+  background-color: white;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+.inputs-login {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: auto;
+}
+
+.inputs-login input {
+  width: 280px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 15px;
+  padding-left: 7px;
+  align-items: center;
+}
+
+.inputs-login button {
+  width: 280px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #81b71a;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.inputs-login button:hover {
+  border: 2px solid black;
+  color: black;
+}
+
+.capa-login {
+  display: flex;
+  width: auto;
+}
+
+.capa-login img {
+  width: 400px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+@media (max-width: 900px){
+  .content-login {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .content-login {
+    height: 500px;
+  }
+  .login {
+    width: 250px;
+  }
+  .capa-login img {
+    width: 250px;
+  }
+  .inputs-login input {
+    width: 200px;
+  }
+  .inputs-login button {
+    width: 200px;
+  }
+}

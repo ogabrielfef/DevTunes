@@ -1,0 +1,71 @@
+.header-component {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-home {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  background-color: #006400;
+}
+
+.header-home h1 {
+  width: 50vw;
+  padding-left: 50px;
+  color: white;
+  font-size: 35px;
+}
+
+.usuario {
+  width: 50vw;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50px;
+}
+
+.box-usuario {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding-right: 7px;
+  background-color: white;
+}
+
+.usuario img {
+  width: 30px;
+}
+
+.nav-header {
+  display: flex;
+  width: 100vw;
+  height: 50px;
+  align-items: center;
+}
+
+.nav-header a {
+  width: 33.33vw;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: black;
+  font-size: 18px;
+  box-shadow: 1px 2px 7px black;
+}
+
+.nav-header a:hover {
+  background-color: #81b71a;
+  color: white;
+}
+
+@media (max-width: 400px) {
+  .header-home h1 {
+    padding-left: 10px;
+  }
+  .usuario {
+    padding-right: 10px;
+  }
+}
