@@ -13,6 +13,10 @@ class Login extends Component {
     loading: false,
   }
 
+  onkey(e) {
+    console.log(e.key);
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value });
@@ -25,6 +29,12 @@ class Login extends Component {
     this.setState({ loading: true });
     await createUser({ name });
     push('/search');
+  }
+
+  onKey = (event) => {
+    if (event.key === 'Enter') {
+      this.saved(event);
+    }
   }
 
   render() {
@@ -47,6 +57,7 @@ class Login extends Component {
                     value={ name }
                     data-testid="login-name-input"
                     onChange={ this.handleChange }
+                    onKeyPress={ this.onKey }
                   />
                 </label>
                 <button
