@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
-import Loading from '../Loading';
 import './Header.css';
 import icon from '../assets/person-circle-outline.svg';
 
 class Header extends Component {
   state = {
     user: '',
-    loading: false,
   }
 
   componentDidMount() {
@@ -16,13 +14,12 @@ class Header extends Component {
   }
 
    fetchUser = async () => {
-     this.setState({ loading: true });
      const users = await getUser();
-     this.setState({ user: users.name, loading: false });
+     this.setState({ user: users.name });
    }
 
    render() {
-     const { user, loading } = this.state;
+     const { user } = this.state;
      return (
        <div data-testid="header-component" className="header-component">
          <div className="header-home">
@@ -39,7 +36,6 @@ class Header extends Component {
            <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
            <Link to="/profile" data-testid="link-to-profile">Profile</Link>
          </nav>
-         { loading && <Loading />}
        </div>
      );
    }

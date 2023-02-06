@@ -14,10 +14,10 @@ Em caso de dicas, observações ou ajuda você pode entrar em contato comigo por
 
 <br>
 
-⚠️ Projeto passando por algumas alterações de CSS, em breve disponibilizo as mudanças. ⚠️
-<!-- <p align="center">
-  <img alt="projeto DevLinks" src="./assets/Capa.jpg" width="100%">
-</p> -->
+<!-- ⚠️ Projeto passando por algumas alterações de CSS, em breve disponibilizo as mudanças. ⚠️ -->
+<p align="center">
+  <img alt="projeto DevLinks" src="./src/assets/Capa.jpg" width="100%">
+</p>
 
 ## 🚀 Tecnologias
 

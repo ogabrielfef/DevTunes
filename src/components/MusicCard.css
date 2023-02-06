@@ -1,0 +1,19 @@
+.music-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.music-title {
+  display: flex;
+  width: 150px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.music-reprodutor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

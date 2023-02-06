@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
-import Loading from '../Loading';
+import './MusicCard.css';
 
 class MusicCard extends React.Component {
   state = {
@@ -34,6 +34,7 @@ class MusicCard extends React.Component {
   }
 
   handleChange = ({ target }) => {
+    console.log(target);
     this.setState({ checked: target.checked }, this.fetchAddSong);
   };
 
@@ -41,24 +42,27 @@ class MusicCard extends React.Component {
     const { loading, checked } = this.state;
     const { trackName, previewUrl, trackId } = this.props;
     return (
-      <div>
-        {loading && <Loading />}
-        <p>{trackName}</p>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
-          <track kind="captions" />
-          O seu navegador não suporta o elemento
-          <code>audio</code>
-        </audio>
-        <label htmlFor="favorite">
-          Favorita
-          <input
-            id="favorite"
-            checked={ checked }
-            onChange={ this.handleChange }
-            type="checkbox"
-            data-testid={ `checkbox-music-${trackId}` }
-          />
-        </label>
+      <div className="music-card">
+        {/* {loading && <Loading />} */}
+        <div className="music-title">
+          <p>{trackName}</p>
+        </div>
+        <div className="music-reprodutor">
+          <audio data-testid="audio-component" src={ previewUrl } controls>
+            <track kind="captions" />
+            O seu navegador não suporta o elemento
+            <code>audio</code>
+          </audio>
+          <label htmlFor="favorite">
+            <input
+              id="favorite"
+              checked={ checked }
+              onChange={ this.handleChange }
+              type="checkbox"
+              data-testid={ `checkbox-music-${trackId}` }
+            />
+          </label>
+        </div>
       </div>
     );
   }

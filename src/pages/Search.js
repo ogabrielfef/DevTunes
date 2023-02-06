@@ -31,6 +31,12 @@ class Search extends Component {
     });
   }
 
+  onKey = (event) => {
+    if (event.key === 'Enter') {
+      this.handleClick(event);
+    }
+  }
+
   render() {
     const { album, loading, searchAlbum, searchApi, albumArr } = this.state;
     return (
@@ -47,6 +53,7 @@ class Search extends Component {
                 data-testid="search-artist-input"
                 onChange={ this.handleChange }
                 value={ album }
+                onKeyPress={ this.onKey }
               />
             </label>
             <button
