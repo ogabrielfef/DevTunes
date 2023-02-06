@@ -1,4 +1,4 @@
-<h1 align="center"> Trybetunes </h1>
+<h1 align="center"> Devtunes </h1>
 
 <p align="center">
 Projeto de criação de um React App de reprodução de músicas.
