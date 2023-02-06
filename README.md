@@ -42,7 +42,7 @@ Verifica a capacidade de:
 
 ## 💻 Projeto
 
-O projeto Trybetunes é uma aplicação React capaz de reproduzir músicas das mais variadas bandas e artistas, criar uma lista de músicas favoritas e editar o perfil da pessoa usuária logada.
+O projeto Devtunes é uma aplicação React capaz de reproduzir músicas das mais variadas bandas e artistas, criar uma lista de músicas favoritas e editar o perfil da pessoa usuária logada.
 
 
 <h2 align="center">Feito com ♥ by ogabrielfef</h2>
